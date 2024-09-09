@@ -30,19 +30,21 @@ const { CLIENT, PASSWORD } = process.env;
 (async () => {
     const clientId = CLIENT;
     const client = new TikTokClient();
-    await client.authenticate(clientId, CLIENT, PASSWORD);
+    await client.authenticate(CLIENT, PASSWORD);
 })();
 ```
 
 ## TODO
-- Complete Authentication
-- Complete Session Management
-- Complete Session Finalization
-- Complete Session Refresh
-- Complete Session Deletion & Cleanup
-- Add upload function
-- Add native post schedule function
-- Add download function
-- Add get function
-- Add delete function
-- Add search function
+[x] Complete Authentication
+[ ] Browser Pooling for multiple sessions
+[ ] Workers for multiple sessions and re-use sessions
+[ ] Complete Session Management
+[ ] Complete Session Finalization
+[ ] Complete Session Refresh
+[ ] Complete Session Deletion & Cleanup
+[ ] Add upload function
+[ ] Add native post schedule function
+[ ] Add download function
+[ ] Add get function
+[ ] Add delete function
+[ ] Add search function

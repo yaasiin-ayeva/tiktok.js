@@ -4,7 +4,12 @@ dotenv.config();
 const { CLIENT, PASSWORD } = process.env;
 
 (async () => {
-    const clientId = CLIENT;
     const client = new TikTokClient();
-    await client.authenticate(clientId, CLIENT, PASSWORD);
+    await client.authenticate(CLIENT, PASSWORD);
+    await client.postScheduledVideo(
+        'video.mp4',
+        'This is a sample description with #tags',
+        '2024-09-09',
+        '08:00'
+    );
 })();

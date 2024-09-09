@@ -7,7 +7,12 @@
     "test": "ts-node src/test.ts"
   },
   "keywords": [],
-  "author": "yaasiin",
+  "author": "yaasiin-ayeva",
+  "repository": "https://github.com/yaasiin-ayeva/tiktok.js",
+  "bugs": {
+    "url": "https://github.com/yaasiin-ayeva/tiktok.js/issues"
+  },
+  "homepage": "https://github.com/yaasiin-ayeva/tiktok.js#readme",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^22.5.4",
