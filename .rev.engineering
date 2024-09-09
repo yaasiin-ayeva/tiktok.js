@@ -23,9 +23,80 @@
 // button to post
 // <button class="TUXButton TUXButton--default TUXButton--large TUXButton--primary" aria-disabled="false" type="button"><div class="TUXButton-content"><div class="TUXButton-label">Post</div></div></button>
 
+<button class="TUXButton TUXButton--default TUXButton--large TUXButton--primary" aria-disabled="false" type="button">
+    <div class="TUXButton-content">
+        <div class="TUXButton-label">Post</div>
+    </div>
+</button>
 
 // After schedule modal 
 // <div class="TUXModal common-modal common-modal-width--medium common-modal-confirm-modal" data-width="small" aria-labelledby=":r25:_title" tabindex="0" id=":r26:" role="dialog"><div class="jsx-1540291114 common-modal-header"><div class="jsx-1540291114"><div style="color: var(--ui-text-1); font-size: 18px; font-weight: 700; font-family: var(--tux-web-font-body);">Video scheduled!</div></div></div><div class="jsx-1540291114 common-modal-body"><div style="color: inherit; font-size: 16px; font-weight: inherit; font-family: var(--tux-web-font-body);">Your video will be posted automatically on the scheduled date. You can manage all scheduled videos from your account.</div></div><div class="jsx-1540291114 common-modal-footer"><button class="TUXButton TUXButton--default TUXButton--medium TUXButton--secondary" aria-disabled="false" type="button"><div class="TUXButton-content"><div class="TUXButton-label">Manage posts</div></div></button><button class="TUXButton TUXButton--default TUXButton--medium TUXButton--primary" aria-disabled="false" type="button"><div class="TUXButton-content"><div class="TUXButton-label">Upload another video</div></div></button></div></div>
 
 // After upload modal botton
 // <div class="TUXButton-label">Upload another video</div>
+
+
+
+// Validation buttons
+<div class="jsx-3026483946 button-group">
+    <button class="TUXButton TUXButton--default TUXButton--large TUXButton--primary" aria-disabled="false"
+        type="button">
+        <div class="TUXButton-content">
+            <div class="TUXButton-label">Post</div>
+        </div>
+    </button><button class="TUXButton TUXButton--default TUXButton--large TUXButton--secondary" aria-disabled="false"
+        type="button">
+        <div class="TUXButton-content">
+            <div class="TUXButton-label">Save draft</div>
+        </div>
+    </button><button class="TUXButton TUXButton--default TUXButton--large TUXButton--secondary" aria-disabled="false"
+        type="button">
+        <div class="TUXButton-content">
+            <div class="TUXButton-label">Discard</div>
+        </div>
+    </button>
+</div>
+
+
+// captchat modal
+<div role="dialog" class="captcha_verify_container CaptchaWrapper-u1rqd2-0 gmpebW" style="visibility: visible;">
+    <div class="captcha_verify_bar sc-eHgmQL dUeLGr">
+        <div class="captcha_verify_bar--close CloseButton___StyledDiv-wbp0x6-0 hLjlmj"></div>
+        <div class="captcha_verify_bar--title sc-cvbbAY bNjEzF">
+            <div class="VerifyBar___StyledDiv-sc-12zaxoy-0 hRJhHT">Which of these objects captures images?:</div>
+        </div>
+    </div>
+    <div class="captcha_verify_img--wrapper sc-gqjmRU eWBlkd"><img id="captcha-verify-image" draggable="false"
+            src="https://p19-rc-captcha-va.ibyteimg.com/tos-maliva-i-b4yrtqhy5a-us/icon_v5_310_564a67bd6a864b92ae56d8f2714d7390~tplv-b4yrtqhy5a-2.jpeg"
+            alt="" class="sc-VigVT dZdvVK sc-EHOje gmqLhr">
+        <div id="verify-points"></div>
+    </div>
+    <div class="captcha_verify_action sc-jAaTju jvNEQE">
+        <div class="sc-jDwBTQ irWGOL"><a class="secsdk_captcha_refresh RefreshButton___StyledA-sc-1fbz10v-0 cAUjOB"
+                tabindex="0" aria-label="" aria-live="polite" id="refresh-button"><span
+                    class="secsdk_captcha_refresh--icon sc-bdVaJa iuZfrP"><svg fill="#505050" width="20px" height="20px"
+                        viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10,4 C12.0559549,4 13.9131832,5.04358655 15.0015086,6.68322231 L15,5.5 C15,5.22385763 15.2238576,5 15.5,5 C15.7761424,5 16,5.22385763 16,5.5 L16,8.5 C16,8.77614237 15.7761424,9 15.5,9 L12.5,9 C12.2238576,9 12,8.77614237 12,8.5 C12,8.22385763 12.2238576,8 12.5,8 L14.5842317,8.00000341 C13.7999308,6.20218044 12.0143541,5 10,5 C7.23857625,5 5,7.23857625 5,10 C5,12.7614237 7.23857625,15 10,15 C11.749756,15 13.3431487,14.0944653 14.2500463,12.6352662 C14.3958113,12.4007302 14.7041063,12.328767 14.9386423,12.4745321 C15.1731784,12.6202971 15.2451415,12.9285921 15.0993765,13.1631281 C14.0118542,14.9129524 12.0990688,16 10,16 C6.6862915,16 4,13.3137085 4,10 C4,6.6862915 6.6862915,4 10,4 Z"
+                            fill-rule="nonzero"></path>
+                    </svg></span><span class="secsdk_captcha_refresh--text sc-bwzfXH gBXrMn">Refresh</span></a><a
+                class="secsdk_captcha_feedback sc-htpNat kppoVL" tabindex="0" role="button"
+                aria-label="Report a problem" aria-live="polite" id="feedback-button"><span
+                    class="secsdk_captcha_feedback--icon sc-bxivhb dYIJJI"><svg width="20px" height="20px" x="0px"
+                        y="0px" viewBox="0 0 20 20">
+                        <g transform="translate(3.000000, 3.000000)">
+                            <path fill="#505050"
+                                d="M7,13.5c3.6,0,6.5-2.9,6.5-6.5S10.6,0.5,7,0.5S0.5,3.4,0.5,7S3.4,13.5,7,13.5z M7,12.5 C4,12.5,1.5,10,1.5,7S4,1.5,7,1.5S12.5,4,12.5,7S10.1,12.5,7,12.5z">
+                            </path>
+                            <path fill="#505050"
+                                d="M6.5,4v3.5C6.5,7.8,6.7,8,7,8s0.5-0.2,0.5-0.5V4c0-0.3-0.2-0.5-0.5-0.5S6.5,3.7,6.5,4z">
+                            </path>
+                            <path fill="#505050"
+                                d="M7,10.5c0.3,0,0.6-0.3,0.6-0.6c0-0.3-0.3-0.6-0.6-0.6S6.4,9.5,6.4,9.9 C6.4,10.2,6.7,10.5,7,10.5z">
+                            </path>
+                        </g>
+                    </svg></span><span class="secsdk_captcha_feedback--text sc-ifAKCX jDStDr">Report a
+                    problem</span></a></div>
+        <div class="verify-captcha-submit-button SubmitButton___StyledDiv-sc-1wo8ev0-0 btBYpZ">Confirm</div>
+    </div>
+</div>

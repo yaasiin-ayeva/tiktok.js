@@ -1,21 +1,17 @@
-import puppeteer, { Browser, Page } from 'puppeteer';
+import { Page } from 'puppeteer';
 
 /**
  * Mouse and touch gesture engine for puppeteer pages
  * @param page - The puppeteer page to use 
  */
 export default class GestureEngine {
-    private page: Page;
+    private static instance: GestureEngine | null = null;
 
-    public static instance: GestureEngine | null = null;
-
-    constructor(page: Page) {
-        this.page = page;
-        if (!GestureEngine.instance) {
-            GestureEngine.instance = this;
-        } else {
+    constructor(private page: Page) {
+        if (GestureEngine.instance) {
             return GestureEngine.instance;
         }
+        GestureEngine.instance = this;
     }
 
     /**
@@ -28,47 +24,18 @@ export default class GestureEngine {
         await new Promise(resolve => setTimeout(resolve, delay));
     }
 
-    /**
-     * Scroll page
-     * @param scrollAmount Scroll amount
-     * @param stepDelay Step delay
-     */
-    async scrollPage(scrollAmount: number = 100, stepDelay: { min: number, max: number } = { min: 100, max: 500 }) {
-        await this.page.evaluate((scrollAmount) => {
-            window.scrollBy(0, scrollAmount);
-        }, scrollAmount);
+    async scrollPage(scrollAmount: number = 100, { min = 100, max = 500 }: { min?: number, max?: number } = {}) {
+        const scrollInterval = setInterval(async () => {
+            await this.page.evaluate(amount => window.scrollBy(0, amount), scrollAmount);
+            await this.waitRandomTime(min, max);
+        }, 1000);
 
-        await this.waitRandomTime(stepDelay.min, stepDelay.max);
+        await this.waitRandomTime(2000, 3000);
+        clearInterval(scrollInterval);
     }
 
-    /**
-     * Move mouse to position x and y
-     * @param x Position x
-     * @param y Position y
-     * @param moveDelay Move delay
-     */
-    async moveMouse(x: number, y: number, moveDelay: { min: number, max: number } = { min: 50, max: 200 }) {
-        await this.page.mouse.move(x, y);
-        await this.waitRandomTime(moveDelay.min, moveDelay.max);
-    }
-
-    /**
-     * Click on element with selector
-     * @param selector Element selector
-     * @param clickDelay Click delay
-     */
-    async click(selector: string, clickDelay: { min: number, max: number } = { min: 100, max: 300 }) {
-        await this.page.click(selector);
-        await this.waitRandomTime(clickDelay.min, clickDelay.max);
-    }
-
-    /**
-     * Type text on element
-     * @param selector Element selector
-     * @param text Text to type
-     * @param typeDelay Type delay
-     */
     async typeText(selector: string, text: string, typeDelay: { min: number, max: number } = { min: 50, max: 150 }) {
+        await this.page.waitForSelector(selector);
         await this.page.focus(selector);
         for (const char of text) {
             await this.page.keyboard.type(char);
@@ -76,16 +43,15 @@ export default class GestureEngine {
         }
     }
 
-    /**
-     * Smoothly navigate to url
-     * @param url Url to navigate to
-     */
-    async goTo(url: string, gotoDelay: { min: number, max: number } = { min: 1000, max: 2000 }, waitUntil: 'load' | 'domcontentloaded' | 'networkidle2' | 'networkidle0' = 'networkidle0',) {
-        await this.waitRandomTime(gotoDelay.min, gotoDelay.max);
-        if (waitUntil) {
-            await this.page.goto(url, { waitUntil, timeout: 0 });
-        } else {
-            await this.page.goto(url);
+    async click(selector: string) {
+        await this.page.waitForSelector(selector);
+        await this.page.click(selector);
+    }
+
+    static getInstance(page: Page) {
+        if (!GestureEngine.instance) {
+            GestureEngine.instance = new GestureEngine(page);
         }
+        return GestureEngine.instance;
     }
 }
