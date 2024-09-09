@@ -1,0 +1,31 @@
+--- Upload Video On TikTok Studio ---
+
+ upload_creator_center_url = 'https://www.tiktok.com/tiktokstudio/upload?from=creator_center';
+
+// button to select video
+// <button class="TUXButton TUXButton--default TUXButton--medium TUXButton--primary" aria-disabled="false" type="button" data-hide="false" aria-label="Select video"><div class="TUXButton-content"><div class="TUXButton-label">Select video</div></div></button>
+
+// progress
+// <div class="jsx-305849304 info-progress" style="width: 100%;"><div class="jsx-305849304 info-progress-num">100%</div></div>
+
+// description & tags
+// <div aria-autocomplete="list" aria-expanded="false" class="notranslate public-DraftEditor-content" contenteditable="true" role="combobox" spellcheck="false" style="outline: none; user-select: text; white-space: pre-wrap; overflow-wrap: break-word;" aria-describedby="placeholder-6rula"><div data-contents="true"><div class="" data-block="true" data-editor="6rula" data-offset-key="8d1ot-0-0"><div data-offset-key="8d1ot-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="8d1ot-0-0"><br data-text="true"></span></div></div></div></div>
+
+// schedule radio button
+// <input type="radio" class="TUXRadioStandalone-input" id=":r16:" name="postSchedule" value="schedule">
+
+// schedule time
+// <input class="TUXTextInputCore-input" type="text" id=":r34:" aria-required="false" aria-invalid="false" readonly="" value="08:00">
+
+// schedule date
+// <input class="TUXTextInputCore-input" type="text" id=":r35:" aria-required="false" aria-invalid="false" readonly="" value="2024-09-09">
+
+// button to post
+// <button class="TUXButton TUXButton--default TUXButton--large TUXButton--primary" aria-disabled="false" type="button"><div class="TUXButton-content"><div class="TUXButton-label">Post</div></div></button>
+
+
+// After schedule modal 
+// <div class="TUXModal common-modal common-modal-width--medium common-modal-confirm-modal" data-width="small" aria-labelledby=":r25:_title" tabindex="0" id=":r26:" role="dialog"><div class="jsx-1540291114 common-modal-header"><div class="jsx-1540291114"><div style="color: var(--ui-text-1); font-size: 18px; font-weight: 700; font-family: var(--tux-web-font-body);">Video scheduled!</div></div></div><div class="jsx-1540291114 common-modal-body"><div style="color: inherit; font-size: 16px; font-weight: inherit; font-family: var(--tux-web-font-body);">Your video will be posted automatically on the scheduled date. You can manage all scheduled videos from your account.</div></div><div class="jsx-1540291114 common-modal-footer"><button class="TUXButton TUXButton--default TUXButton--medium TUXButton--secondary" aria-disabled="false" type="button"><div class="TUXButton-content"><div class="TUXButton-label">Manage posts</div></div></button><button class="TUXButton TUXButton--default TUXButton--medium TUXButton--primary" aria-disabled="false" type="button"><div class="TUXButton-content"><div class="TUXButton-label">Upload another video</div></div></button></div></div>
+
+// After upload modal botton
+// <div class="TUXButton-label">Upload another video</div>
