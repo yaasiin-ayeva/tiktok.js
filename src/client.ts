@@ -176,13 +176,11 @@ export class TikTokClient {
     }
 
     /**
-     * Posts a video on schedule.
+     * Posts a video right now.
      * @param videoPath - The path of the video file to upload
      * @param description - The description and tags for the video
-     * @param scheduleDate - The date to schedule the post (YYYY-MM-DD)
-     * @param scheduleTime - The time to schedule the post (HH:mm)
      */
-    async postScheduledVideo(videoPath: string, description: string, scheduleDate: string, scheduleTime: string) {
+    async postVideo(videoPath: string, description: string) {
         if (!this.page) throw new Error("Browser not initialized.");
 
         // Navigate to the upload page
@@ -222,9 +220,9 @@ export class TikTokClient {
         await this.page.focus('input[name="postSchedule"][value="schedule"]');
 
         // Select the "Schedule" option
-        await this.gestureEngine!.click('input[name="postSchedule"][value="schedule"]');
+        // await this.gestureEngine!.click('input[name="postSchedule"][value="schedule"]');
         // await this.page.click('input[name="postSchedule"][value="schedule"]');
-        console.log('Selected schedule option.');
+        // console.log('Selected schedule option.');
 
         // // Set the date
         // await this.page.focus('input[id=":r35:"]');
@@ -238,19 +236,33 @@ export class TikTokClient {
 
         // Set the date (Using class selector as fallback)
         // use current date as selector to prevent using dynamic ids selectors 
-        const currentDateString = new Date().toISOString().split('T')[0];
-        await this.page.focus(`input.TUXTextInputCore-input[value="${currentDateString}"]`);
-        await this.page.keyboard.type(scheduleDate);
+        // const currentDateString = new Date().toISOString().split('T')[0];
+        // await this.page.focus(`input.TUXTextInputCore-input[value="${currentDateString}"]`);
+        // await this.page.keyboard.type(scheduleDate);
 
         // Set the time (Using class selector as fallback)
         // await this.page.focus('input.TUXTextInputCore-input[value="07:50"]');
         // await this.page.keyboard.type(scheduleTime);
 
-        // Click the "Post" button to schedule the video
-        await this.page.click('button[type="button"] .TUXButton-label:contains("Post")');
+        // Target Select button to change post privacy
+        await this.page.click('.TUXSelect-button');
+
+        // Target the "Everyone" option
+        await this.page.waitForSelector('.TUXSelect-buttonText');
+        const options = await this.page.$$('.TUXSelect-buttonText');
+
+        for (const option of options) {
+            const optionText = await this.page.evaluate(el => el.textContent.trim(), option);
+            if (optionText === "Everyone") {
+                await option.click();
+                console.log('Selected "Everyone".');
+                break;
+            }
+        }
+
+        await this.page.click('.button-group button:first-child');
         console.log('Clicked the "Post" button.');
 
-        // Wait for confirmation that the video has been scheduled
         await this.page.waitForSelector('.common-modal-header', { visible: true });
         console.log('Video scheduled successfully.');
     }
