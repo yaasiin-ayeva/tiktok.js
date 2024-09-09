@@ -1,6 +1,6 @@
 {
-  "name": "tiktok.js",
-  "version": "1.2.2",
+  "name": "tiktokjs",
+  "version": "1.0.1",
   "description": "A Tiktok client library for NodeJS that connects through the TikTok Web browser app",
   "main": "dist/index.js",
   "scripts": {
