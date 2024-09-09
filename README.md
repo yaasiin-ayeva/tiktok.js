@@ -38,11 +38,11 @@ const { CLIENT, PASSWORD } = process.env;
 - [x] Complete Authentication
 - [ ] Browser Pooling for multiple sessions
 - [ ] Workers for multiple sessions and re-use sessions
-- [ ] Complete Session Management
+- [x] Complete Session Management
 - [ ] Complete Session Finalization
 - [ ] Complete Session Refresh
 - [ ] Complete Session Deletion & Cleanup
-- [ ] Add upload function
+- [x] Add upload function
 - [ ] Add native post schedule function
 - [ ] Add download function
 - [ ] Add get function
