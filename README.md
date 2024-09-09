@@ -1,10 +1,10 @@
-# tiktok.js
+# tiktokjs
 A Tiktok client library for NodeJS that connects through the TikTok Web browser app
 
 ## Installation
 
 ```bash
-npm install tiktok.js
+npm install tiktokjs
 ```
 
 ## How to run the script
