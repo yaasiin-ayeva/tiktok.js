@@ -47,4 +47,4 @@ const { CLIENT, PASSWORD } = process.env;
 - [ ] Add download function
 - [ ] Add get function
 - [ ] Add delete function
-- [ ] Add search function
+- [x] Add search function

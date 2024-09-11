@@ -191,4 +191,39 @@ export class TikTokClient {
         await this.page.waitForSelector('.common-modal-header', { visible: true });
         console.log('Video posted successfully.');
     }
+
+    async searchTag(tag: string, scrolls: number = 10): Promise<string[]> {
+        if (!this.page) throw new Error("Browser not initialized.");
+
+        const searchUrl = `${URLs.base}tag/${encodeURIComponent(tag)}`;
+        await this.page.goto(searchUrl, { waitUntil: 'networkidle2' });
+        console.log(`Navigated to tag search: ${searchUrl}`);
+
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        console.log(`Fetching your results for tag ${tag}. This will take approximately 2 mins`);
+
+        for (let i = 0; i < scrolls; i++) {
+            console.log(`Scrolling... (${i + 1}/${scrolls})`);
+            await this.gestureEngine!.scrollPage(5000);
+            await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+
+        const results = await this.page.evaluate(() => {
+            const itemList = document.querySelector('div[data-e2e="challenge-item-list"]');
+            if (!itemList) return [];
+
+            const individualPosts = itemList.querySelectorAll('div > div > div');
+
+            return Array.from(individualPosts).map(post => {
+                const lastDiv = post.querySelector('div > div > div:last-child');
+                const link = lastDiv?.querySelector('a');
+                return link ? link.href : '';
+            }).filter(href => href);
+        });
+
+        console.log(`Total fetched posts: ${results.length} for tag: ${tag}`);
+        return results;
+    }
+
 }
